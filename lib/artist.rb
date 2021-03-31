@@ -23,7 +23,7 @@ class Artist
   
   def self.song_count
     counter=0
-    self.songs {|song| counter+=1}
+    self.songs.each {|song| counter+=1}
     counter
   end
 end
