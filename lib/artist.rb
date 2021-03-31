@@ -15,12 +15,16 @@ class Artist
   end
   
   def songs
-    @songs=Song.all.select {|song| song.artist == self}
+    Song.all.select {|song| song.artist == self}
   end
   
   def self.song_count
     counter=0
-    @songs.each {|song| counter+=1}
+    Song.all.each do |song|
+      if song.artist == self
+        counter+=1
+      end
+    end
     counter
   end
 end
