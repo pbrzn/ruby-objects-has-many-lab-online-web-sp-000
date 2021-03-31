@@ -8,10 +8,6 @@ class Artist
     @songs = []
   end
   
-  def songs
-    Song.all.select {|song| song.artist == self}
-  end
-  
   def add_song(song)
     song.artist=self
     @songs << song
@@ -23,10 +19,13 @@ class Artist
     @songs << song_name
   end
   
+  def songs
+    Song.all.select {|song| song.artist == self}
+  end
+  
   def self.song_count
     counter=0
-    @songs.each {|song| counter+=1}
-    binding.pry
+    self.songs {|song| counter+=1}
     counter
   end
 end
