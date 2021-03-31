@@ -1,5 +1,3 @@
-require 'pry'
-
 class Artist
   attr_accessor :name
 
@@ -23,7 +21,6 @@ class Artist
   def self.song_count
     counter=0
     self.songs.each {|song| counter+=1}
-    binding.pry
     counter
   end
 end
