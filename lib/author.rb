@@ -20,7 +20,11 @@ class Author
   
   def self.post_count
     counter=0
-    Post.all.each {|post| counter+=1}
+    Post.all.each do |post| 
+      if post.author
+        counter+=1
+      end
+    end
     counter
   end
 end
